@@ -1,0 +1,43 @@
+[
+  {
+    "id": 0,
+    "brand": "Kryptonite",
+    "name": "New York Standard U-Lock",
+    "price": 119,
+    "summary": "Maximum protection for your e-ride! The Kryptonite New York Standard u-lock was built with the toughest cities in mind. Combining thick hardened steel with patented deadbolt technology, the New York is up for the challenge.",
+    "imgName": "kryptonitenylock"
+  },
+  {
+    "id": 1,
+    "brand": "Kryptonite",
+    "name": "Keeper U-Lock",
+    "price": 39,
+    "summary": "Ultimate security at an affordable price. The Kryptonite Keeper is an impressive u-lock that will keep your prized e-ride safe. A hardened shackle and anti-theft deadbolt are just some of the reasons we love the Keeper.",
+    "imgName": "kryptonitekeeper"
+  },
+  {
+    "id": 2,
+    "brand": "Multi Drive",
+    "name": "1000 Front Light",
+    "price": 169,
+    "summary": "This is a LED cycling light with a brightness of 1,000 lumens. It is compact and durable. Includes power pack battery and charging cable.",
+    "imgName": "multidrive1000"
+  },
+  {
+    "id": 3,
+    "brand": "KTV",
+    "name": "Pro Smart",
+    "price": 39,
+    "summary": "This lightweight and durable Max 75 lumens / 20 hour runtime in Flash mode rear light comes with a new 400 mAh battery, has Wide angle optics with 270° visibility for maximum safety, and is aero and round seat post compatible. Offers IPX7 water resistance.",
+    "imgName": "ktvprolight"
+
+  },
+  {
+    "id": 4,
+    "brand": "JoeBlow",
+    "name": " Sport III Bike Pump",
+    "price": 49,
+    "summary": "The new JoeBlow® III continues the tradition of setting the benchmark for floor pump durability and performance, while ushering in upgrades with an enlarged 3” chronograph inspired gauge and new hammer style TwinHead® DX pump head. A durable steel barrel and base as well as ergonomic padded handle make inflating tires a breeze.",
+    "imgName": "joeblowpump"
+  }
+ ]
