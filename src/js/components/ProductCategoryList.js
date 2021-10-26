@@ -7,7 +7,6 @@ function ProductCategoryList() {
   return (
     <div className="ProductCategoryList">
       This is the page where you list e-bikes or accessories.
-      {console.log(match.path)}
       <ul>
         <li>
           <Link to={`${match.path}/ebikes`}>E-Bikes</Link>

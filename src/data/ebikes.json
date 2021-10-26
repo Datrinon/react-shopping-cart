@@ -1,0 +1,74 @@
+[
+  {
+    "id": 0,
+    "brand": "Lectric",
+    "product": "XP 2.0",
+    "price": 999,
+    "summary": "The Lectric XP 2.0 e-bike is the latest version (2021) of one of the most popular electric bikes of all time. It has nearly every feature you could imagine and it’s at a very attractive price considering it’s made with top quality components.",
+    "range": 50,
+    "power": 500,
+    "weight": 63,
+    "speed": 28,
+    "imgdir": "lectricxp"
+  },
+  {
+    "id": 1,
+    "brand": "Bunch",
+    "product": "The Coupe",
+    "price": 6999,
+    "summary": "Designed and built with Dutch craftsmanship, The Coupe is as beautiful as it is functional. Safety features like the impact-resistant expanded polypropylene (EPP) cargo box protect your most precious cargo, while sophisticated technology—like the Bafang mid-motor and auto-shifting Nuvinci hub—deliver an effortless riding experience that will have you and up to 2 kids (or dogs!) exploring your city like never before!",
+    "range": 75,
+    "power": 250,
+    "weight": 130,
+    "speed": 20,
+    "imgdir": "bunchcoupe"
+  },
+  {
+    "id": 2,
+    "brand": "Ride1UP",
+    "product": "700 Series",
+    "price": 1695,
+    "summary": "The ultimate electric biking experience. Hydraulic fork, hydraulic brakes, color display, 14 ah Samsung cells, Schwalbe Super Moto X tires, fully integrated aluminum frame. The decision to ditch your car has never been easier. Enter the high-end electric bike market today… for half the price!",
+    "range": 50,
+    "power": 750,
+    "weight": 62,
+    "speed": 28,
+    "imgdir": "ride1up700"
+  },
+  {
+    "id": 3,
+    "brand": "Fuell",
+    "product": "Flluid",
+    "price": 4995,
+    "summary": "The FUELL Flluid-1 and Flluid-1S come standard with two large 504Wh Lithium batteries, a torque sensing 500w mid motor, and a Gates Carbon belt drive with an internally geared hub. Ride all you want with low maintenance and exceptional power.",
+    "range": 125,
+    "power": 500,
+    "weight": 79,
+    "speed": 28,
+    "imgdir": "flluid"
+  },
+  {
+    "id": 4,
+    "brand": "Mercedes-Benz",
+    "product": "Formula E Team City Racer",
+    "price": 1990,
+    "summary": "The N+ Mercedes-Benz EQ Formula E Team City Racer eBike is designed for leisurely riding, commuting, and long distance rides. It comes in three frame sizes that each have a maximum load capacity of 220 pounds.",
+    "range": 27,
+    "power": 250,
+    "weight": 35,
+    "speed": 20,
+    "imgdir": "teamcity"
+  },
+  {
+    "id": 5,
+    "brand": "Bliz",
+    "product": "Packa Genie",
+    "price": 1999,
+    "summary": "The Packa is a high-performing, full-featured electric cargo bike with single and dual battery options for longer range, and power capacity for any haul -- making it a natural car-replacement. Whether loading big cargo for utility or precious cargo for family time, it can get the job done.",
+    "range": 70,
+    "power": 750,
+    "weight": 79,
+    "speed": 20,
+    "imgdir": "packagenie"
+  }
+ ]

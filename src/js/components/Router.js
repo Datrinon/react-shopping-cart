@@ -19,16 +19,18 @@ function Router() {
   return (
     <>
       <BrowserRouter>
-      <NavHeader />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/products/:categoryId" component={Category}/>
-          <Route exact path="/products" component={ProductCategoryList} />
-          <Route exact path="/cart" component={Cart} />
-          <Route component={NotFound} />
-        </Switch>
+        <NavHeader />
+        <main className="App content">
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/products/:categoryId" component={Category}/>
+            <Route exact path="/products" component={ProductCategoryList} />
+            <Route exact path="/cart" component={Cart} />
+            <Route component={NotFound} />
+          </Switch>
+        </main>
+        <Footer />
       </BrowserRouter>
-      <Footer />
     </>
   );
 }
