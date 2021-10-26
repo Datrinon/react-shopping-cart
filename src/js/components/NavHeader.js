@@ -8,7 +8,7 @@ function NavHeader() {
       <nav>
         <ul>
           <li>
-            Bikably (LOGO)
+            Mako Bikes (LOGO)
           </li>
           <li>
             <NavLink to="/products/ebikes" activeClassName="active">E-Bikes</NavLink>
