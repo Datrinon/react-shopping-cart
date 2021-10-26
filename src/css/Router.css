@@ -1,0 +1,19 @@
+html, body, #root {
+  height: 100%;
+  background: white;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  flex: 1 0 auto;
+  position: relative;
+}
+.footer {
+  flex-shrink: 0;
+}
