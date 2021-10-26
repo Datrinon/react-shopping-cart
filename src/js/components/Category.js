@@ -1,5 +1,6 @@
 import '../../css/Category.css';
 import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 import Banner from './Banner';
 import ProductCard from "./ProductCard";
@@ -8,27 +9,24 @@ import ebikes from "../../data/ebikes.json";
 import accessories from "../../data/accessories.json";
 
 function Category() {
+
   let { categoryId } = useParams();
+  let [ data, setData ] = useState([]);
+  let [ productCards, setProductCards ] = useState(null);
 
-  function getProductsFromCategory(category) {
-    let data;
-    let imgAttrName;
-    let productCards;
-
-    switch (category) {
+  useEffect(() => {
+    console.log("rerender");
+    switch (categoryId) {
       case "ebikes":
-        data = ebikes;
-
+        setData(ebikes);
+        break;
+      case "accessories":
+        setData(accessories);
         break;
       default:
         break;
     }
-
-    console.log(data);
-    productCards = convertToProductCards(data);
-
-    return productCards;
-  }
+  }, [categoryId]);
 
   /**
    * To be used with getProductsFromCategory to transform data into Product
@@ -69,11 +67,18 @@ function Category() {
           <>
             <Banner text="E-Bikes" />
             <p>Our E-Bikes.</p>
-            {getProductsFromCategory(categoryId)}
+            {convertToProductCards(data)}
           </>
         );
         break;
       case "accessories":
+        section = (
+          <>
+            <Banner text="Accessories" />
+            <p>The finest accessories to accommodate your e-bike.</p>
+            {convertToProductCards(data)}
+          </>
+        );
         break;
       default:
         break;
