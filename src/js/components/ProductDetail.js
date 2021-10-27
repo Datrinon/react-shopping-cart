@@ -1,16 +1,20 @@
-import { useParams } from 'react-router-dom';
+import "../../css/ProductDetail.css";
+import { useLocation } from 'react-router-dom';
 
 function ProductDetail(props) {
   
-  let randomObj = useParams();
+  let details = useLocation()["state"]["details"];
 
-  console.log({props});
-  console.log(randomObj);
+  console.log(details);
+
 
   return(
-    <div>
-      Show Product Details here.
-    </div>
+    <section>
+      <h1>{details.brand} {details.name}</h1>
+      <div className="img-carousel">
+        <img alt="product image" src=""/>
+      </div>
+    </section>
   )
 }
 
