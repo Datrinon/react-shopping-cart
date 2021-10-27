@@ -18,9 +18,6 @@ function ImgCarousel(props) {
     );
   }));
 
-  console.log(images);
-
-
   function prevPic() {
     setCurrentIndex((lastIndex) => {
       if (lastIndex <= 0) {
@@ -41,15 +38,19 @@ function ImgCarousel(props) {
     })
   }
 
+  let controls = (
+    <div className="carousel-controls">
+    <button onClick={prevPic}>Previous</button>
+    <button onClick={nextPic}>Next</button>
+    <div className="carousel-thumbnails">
+      {[...thumbnails.current]}
+    </div>
+  </div>
+  );
+
   return (
     <div className="picture-carousel">
-      <div className="carousel-controls">
-        <button onClick={prevPic}>Previous</button>
-        <button onClick={nextPic}>Next</button>
-        <div className="carousel-thumbnails">
-          {[...thumbnails.current]}
-        </div>
-      </div>
+      {images.length > 1 && controls}
       <div>
         <img alt="" src={props.images[currentIndex]} className="current-image"/>
       </div>
