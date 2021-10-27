@@ -42,25 +42,24 @@ function Category() {
       let dir = filepath.split("/")[0];
 
       if (dir in images === false) {
-        images[dir] = {};
+        images[dir] = [];
       }
 
-      images[dir][filepath] = r(item)["default"];
+      images[dir].push(r(item)["default"]);
     })
 
-
     let productCards = data.map((elem) => {
-      let src = `${elem.imgdir}/01.jpg`;
 
       return (
         <ProductCard
           key={elem.imgdir}
           code={elem.imgdir}
-          coverImage={images[elem.imgdir][src]}
+          coverImage={images[elem.imgdir][0]}
           title={elem.brand + " " + elem.name}
           price={elem.price}
           match={match}
           details={elem}
+          images={images[elem.imgdir]}
         />
       )
     });
