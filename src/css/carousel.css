@@ -1,0 +1,13 @@
+.carousel-thumbnails .carousel-img {
+  width: 55px;
+  height: 55px;
+  border: 1px solid black;
+}
+
+.carousel-thumbnails .carousel-img:hover {
+  border: 1px solid maroon;
+}
+
+.current-image {
+  width: 50%;
+}

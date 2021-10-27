@@ -1,6 +1,8 @@
 import "../../css/ProductDetail.css";
 import { useLocation } from 'react-router-dom';
 
+import ImgCarousel from "./ImgCarousel";
+
 function ProductDetail(props) {
   
   let details = useLocation()["state"]["details"];
@@ -12,6 +14,7 @@ function ProductDetail(props) {
   return(
     <section>
       <h1>{details.brand} {details.name}</h1>
+      <ImgCarousel images={images} />
     </section>
   )
 }
