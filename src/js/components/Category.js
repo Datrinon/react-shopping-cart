@@ -36,20 +36,27 @@ function Category() {
   function convertToProductCards(data) {
     let images = {};
 
-    let r = require.context("../../data/productimages", true, /01\.(png|jpe?g|svg)$/);
+    let r = require.context("../../data/productimages", true, /\.(png|jpe?g|svg)$/);
     r.keys().forEach((item) => {
-      images[item.replace("./", "")] = r(item);
+      let filepath = item.replace("./", "");
+      let dir = filepath.split("/")[0];
+
+      if (dir in images === false) {
+        images[dir] = {};
+      }
+
+      images[dir][filepath] = r(item)["default"];
     })
 
-    let productCards = data.map((elem) => {
 
+    let productCards = data.map((elem) => {
       let src = `${elem.imgdir}/01.jpg`;
 
       return (
         <ProductCard
           key={elem.imgdir}
           code={elem.imgdir}
-          src={images[src]['default']}
+          coverImage={images[elem.imgdir][src]}
           title={elem.brand + " " + elem.name}
           price={elem.price}
           match={match}
