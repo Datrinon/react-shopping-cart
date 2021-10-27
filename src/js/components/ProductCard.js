@@ -2,14 +2,15 @@ import { Link } from "react-router-dom";
 
 function ProductCard(props) {
 
-  console.log(props.details);
-
   return (
     <div className="product-card">
       <Link 
         to={{
           pathname: `${props.match.url}/${props.code}`,
-          state: { details : props.details }
+          state: {
+            details : props.details,
+            images : props.images
+           }
       }}>
         <div>
           <img src={props.coverImage} style={{width: "128px"}} alt="product-card"/>
