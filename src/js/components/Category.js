@@ -1,18 +1,18 @@
 import '../../css/Category.css';
-import { useParams } from 'react-router-dom';
+import { Route, Switch, useParams, useRouteMatch } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 import Banner from './Banner';
 import ProductCard from "./ProductCard";
+import ProductDetail from "./ProductDetail";
 
 import ebikes from "../../data/ebikes.json";
 import accessories from "../../data/accessories.json";
 
 function Category() {
-
+  let match = useRouteMatch();
   let { categoryId } = useParams();
   let [ data, setData ] = useState([]);
-  let [ productCards, setProductCards ] = useState(null);
 
   useEffect(() => {
     console.log("rerender");
@@ -41,16 +41,19 @@ function Category() {
       images[item.replace("./", "")] = r(item);
     })
 
-    let productCards = data.map((elem, index) => {
+    let productCards = data.map((elem) => {
 
       let src = `${elem.imgdir}/01.jpg`;
 
       return (
         <ProductCard
           key={elem.imgdir}
+          code={elem.imgdir}
           src={images[src]['default']}
           title={elem.brand + " " + elem.name}
           price={elem.price}
+          match={match}
+          details={elem}
         />
       )
     });
@@ -58,7 +61,7 @@ function Category() {
     return productCards;
   }
 
-  function determineSectionToRender() {
+  function renderProductList() {
     let section;
 
     switch (categoryId) {
@@ -87,11 +90,20 @@ function Category() {
     return section;
   }
 
+  console.log(match.url);
+
   return (
-    <section className="Category">
-      Category Page.
-      {determineSectionToRender()}
-    </section>
+    <Switch>
+      <Route path={`${match.url}/:productId`}>
+        <ProductDetail />
+      </Route>
+      <Route path={match.path}>
+        <section className="Category">
+          Category Page.
+          {renderProductList()}
+        </section>
+      </Route>
+    </Switch>
   );
 }
 
