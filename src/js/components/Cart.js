@@ -16,9 +16,16 @@ function Cart() {
     event.preventDefault();
   }
 
+  function getCartTotal() {
+    return Object.keys(cart).reduce((total, sku) => {
+      total += cart[sku]["price"] * cart[sku]["quantity"];
+      return total;
+    }, 0);
+  }
+
   function enumerateCartItems() {
-    return Object.keys(cart).map(key => {
-      const item = cart[key];
+    return Object.keys(cart).map(sku => {
+      const item = cart[sku];
 
       return (
         <div 
