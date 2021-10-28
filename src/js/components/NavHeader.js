@@ -1,7 +1,9 @@
 import '../../css/NavHeader.css';
-import {NavLink} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 import { useContext, useEffect } from 'react';
 import { CartContext } from './Router';
+
+import Logo from "../../images/logo.jpg";
 
 function NavHeader(props) {
   
@@ -26,7 +28,11 @@ function NavHeader(props) {
       <nav>
         <ul>
           <li>
-            Mako Bikes (LOGO)
+            <div className="logo-wrapper">
+              <Link to="/">
+                <img src={Logo} alt="The logo of Mako Bikes." className="logo"/>
+              </Link>
+            </div>
           </li>
           <li>
             <NavLink to="/products/ebikes" activeClassName="active">E-Bikes</NavLink>

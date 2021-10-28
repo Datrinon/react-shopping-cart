@@ -1,3 +1,11 @@
 .header {
   border: 1px solid black;
 }
+
+.logo-wrapper {
+  width: 72px;
+}
+
+.logo {
+  width: 100%;
+}
