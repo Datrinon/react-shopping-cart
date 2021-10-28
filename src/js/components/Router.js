@@ -51,6 +51,11 @@ function cartReducer(state, action) {
       newCart[action.payload.productCode]["quantity"] = action.payload.quantity;
       return newCart;
     }
+    case 'deleteItem': {
+      const newCart = _.cloneDeep(state);
+      delete newCart[action.payload.productCode];
+      return newCart;
+    }
     default:
       return state;
   }

@@ -13,9 +13,15 @@ function Cart() {
   const dispatch = useContext(CartDispatch);
   const cart = useContext(CartContext);
 
-  function onCartItemModify(event) {
+  function removeCartItem(event) {
     event.preventDefault();
-
+    
+    dispatch({
+      type: "deleteItem",
+      payload: {
+        productCode: event.target.dataset.sku
+      }
+    });
   }
 
   function getCartTotal() {
@@ -46,7 +52,6 @@ function Cart() {
       return (
         <div 
           key={item.productCode}
-          data-sku={item.productCode}
           className="cart-item">
           <img
             className="product-pic"
@@ -56,13 +61,15 @@ function Cart() {
           <div>
             <h2 className="product-name">{item.name}</h2>
             <p className="product-price">${item.price}</p>
-            <form onSubmit={onCartItemModify}>
+            <form onSubmit={removeCartItem} data-sku={item.productCode}>
               <ItemQuantity
                 initialQuantity={item.quantity}
                 callbackOnChange={onQuantityChange}
                 identifier={item.productCode}
                 />
-              <button>Remove</button>
+              <button>
+                Remove
+              </button>
             </form>
           </div>
         </div>
