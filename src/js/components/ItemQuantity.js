@@ -1,10 +1,26 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { MAX_ITEMS } from './Router';
 
-export default function ItemQuantity({initialQuantity}) {
+/**
+ * A component which has a numeric input, alongside some buttons for increasing/decreasing
+ * the value inside of the field. Accepts props which are:
+ * @param {number} initialQuantity - The starting quantity of the field.
+ * @param {function} callbackOnChange - (Optional) A callback to invoke if the quantity is changed.
+ * The callback should passes back the identifier given to it in initialization.
+ * @param {string} identifier - (Optional) Identifies which numeric input this component belongs to.
+ * @returns JSXElement
+ */
+export default function ItemQuantity({initialQuantity, callbackOnChange, identifier}) {
 
-  let [quantity, setQuantity] = useState(initialQuantity);
+  const [quantity, setQuantity] = useState(initialQuantity);
+
+  useEffect(() => {
+    if (callbackOnChange !== undefined
+    && identifier !== undefined) {
+      callbackOnChange(identifier, quantity);
+    }
+  }, [quantity]);
 
   function decrement(event) {
     setQuantity((prevQ) => {

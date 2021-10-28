@@ -30,9 +30,8 @@ export const CartContext = React.createContext(null);
  * @param {*} action 
  */
 function cartReducer(state, action) {
-  console.trace();
   switch (action.type) {
-    case 'additem':
+    case 'additem': {
       const newCart = _.cloneDeep(state);
 
       if (action.payload.productCode in newCart) {
@@ -46,6 +45,12 @@ function cartReducer(state, action) {
 
       console.log(newCart);
       return newCart;
+    }
+    case 'editItemQuantity':{
+      const newCart = _.cloneDeep(state);
+      newCart[action.payload.productCode]["quantity"] = action.payload.quantity;
+      return newCart;
+    }
     default:
       return state;
   }

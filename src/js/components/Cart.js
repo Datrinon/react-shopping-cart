@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import '../../css/Cart.css';
 import ItemQuantity from './ItemQuantity';
-import { CartContext } from './Router';
+import { CartContext, CartDispatch } from './Router';
 
 // use the cart state to output items
 // use the cart dispatch function to modify the cart
@@ -10,10 +10,12 @@ import { CartContext } from './Router';
 
 function Cart() {
 
+  const dispatch = useContext(CartDispatch);
   const cart = useContext(CartContext);
 
   function onCartItemModify(event) {
     event.preventDefault();
+
   }
 
   function getCartTotal() {
@@ -23,6 +25,20 @@ function Cart() {
     }, 0);
   }
 
+  function onQuantityChange(sku, quantity) {
+    if (isNaN(quantity)) {
+      return;
+    }
+    
+    dispatch({
+      type: "editItemQuantity",
+      payload: {
+        productCode: sku,
+        quantity: quantity
+      }
+    });
+  }
+
   function enumerateCartItems() {
     return Object.keys(cart).map(sku => {
       const item = cart[sku];
@@ -30,6 +46,7 @@ function Cart() {
       return (
         <div 
           key={item.productCode}
+          data-sku={item.productCode}
           className="cart-item">
           <img
             className="product-pic"
@@ -40,7 +57,11 @@ function Cart() {
             <h2 className="product-name">{item.name}</h2>
             <p className="product-price">${item.price}</p>
             <form onSubmit={onCartItemModify}>
-              <ItemQuantity initialQuantity={item.quantity} />
+              <ItemQuantity
+                initialQuantity={item.quantity}
+                callbackOnChange={onQuantityChange}
+                identifier={item.productCode}
+                />
               <button>Remove</button>
             </form>
           </div>
