@@ -14,6 +14,8 @@ import Category from "./Category";
 import Cart from "./Cart";
 import NotFound from "./NotFound";
 
+import _, { cloneDeep } from 'lodash';
+
 export const CartDispatch = React.createContext(null);
 export const CartContext = React.createContext(null);
 
@@ -21,14 +23,14 @@ export const CartContext = React.createContext(null);
  * This reducer function handles the state of cart. It is used in the product 
  * detail page and the cart page. We use it with context provider so that
  * we don't have to pass it through callbacks.
- * @param {*} state - The latest state.
+ * @param {*} state - The latest state of the cart.
  * @param {*} action 
  */
 function cartReducer(state, action) {
   console.trace();
   switch (action.type) {
     case 'additem':
-      const newCart = {...state};
+      const newCart = _.cloneDeep(state);
 
       if (action.payload.productCode in newCart) {
         newCart[action.payload.productCode]["quantity"] += action.payload.quantity;
