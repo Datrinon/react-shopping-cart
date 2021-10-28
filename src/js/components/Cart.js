@@ -1,9 +1,58 @@
+import { useContext } from 'react';
 import '../../css/Cart.css';
+import ItemQuantity from './ItemQuantity';
+import { CartContext } from './Router';
+
+// use the cart state to output items
+// use the cart dispatch function to modify the cart
+// we should be able to adjust quantity and remove items.
+
 
 function Cart() {
+
+  const cart = useContext(CartContext);
+
+  function onCartItemModify(event) {
+    event.preventDefault();
+  }
+
+  function enumerateCartItems() {
+    return Object.keys(cart).map(key => {
+      const item = cart[key];
+
+      return (
+        <div 
+          key={item.productCode}
+          className="cart-item">
+          <img
+            className="product-pic"
+            src={item.thumbnail}
+            alt={`Side view of the ${item.name}`}
+          />
+          <div>
+            <h2 className="product-name">{item.name}</h2>
+            <p className="product-price">${item.price}</p>
+            <form onSubmit={onCartItemModify}>
+              <ItemQuantity initialQuantity={item.quantity} />
+              <button>Remove</button>
+            </form>
+          </div>
+        </div>
+      );
+    });
+
+  }
+
   return (
     <div className="Cart">
-      Cart Page.
+      <h1>Your Cart</h1>
+      <div className="items">
+        {enumerateCartItems()}
+      </div>
+      <div>
+        <p>Total: {getCartTotal()}</p>
+        <button disabled>Go to Checkout</button>
+      </div>
     </div>
   );
 }
