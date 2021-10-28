@@ -1,7 +1,22 @@
 import '../../css/NavHeader.css';
 import {NavLink} from 'react-router-dom';
+import { useEffect } from 'react';
 
-function NavHeader() {
+function NavHeader({cart}) {
+  
+  useEffect(() => {
+    console.log(cart);
+  }, [cart]);
+
+  function computeCartQuantity() {
+    let numItems = 0;
+    Object.keys(cart).forEach(item => {
+      numItems += cart[item]["quantity"];
+    })
+
+    return numItems;
+  }
+
   return (
     <header className="header">
       Some header here.
@@ -18,7 +33,7 @@ function NavHeader() {
           </li>
         </ul>
         <NavLink to="/cart">
-        Cart 🛒  
+        Cart 🛒 {computeCartQuantity()}
         </NavLink>
       </nav>
     </header>
