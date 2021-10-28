@@ -16,14 +16,11 @@ import NotFound from "./NotFound";
 
 import _, { cloneDeep } from 'lodash';
 
+
 export const MAX_ITEMS = 10;
 
 export const CartDispatch = React.createContext(null);
 export const CartContext = React.createContext(null);
-
-//TODO
-// PLACE MAX ITEMS RIGHT HERE
-// EXPORT THIS AND USE IT AROUND IN THE COMPONENTS.
 
 /**
  * This reducer function handles the state of cart. It is used in the product 

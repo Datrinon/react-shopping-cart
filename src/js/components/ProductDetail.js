@@ -45,7 +45,7 @@ function ProductDetail(props) {
       <ImgCarousel images={images} />
       <p className="price">${details.price}</p>
       <form>
-        <ItemQuantity MAX_ITEMS={10} />
+        <ItemQuantity initialQuantity={1} />
         <button type="submit" onClick={addToCart}>Add to Cart</button> 
         {/*!!! Input number cannot be edited. Good. */}
         {/*!!! After adding to cart, delay with a timeout for 3 seconds this timer. */}

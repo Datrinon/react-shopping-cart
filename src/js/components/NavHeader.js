@@ -36,7 +36,7 @@ function NavHeader(props) {
           </li>
         </ul>
         <NavLink to="/cart">
-        Cart 🛒 {computeCartQuantity()}
+        My Cart 🛒 {computeCartQuantity()}
         </NavLink>
       </nav>
     </header>

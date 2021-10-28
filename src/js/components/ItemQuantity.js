@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 
-export default function ItemQuantity({MAX_ITEMS}) {
+import { MAX_ITEMS } from './Router';
 
-  let [quantity, setQuantity] = useState(1);
+export default function ItemQuantity({initialQuantity}) {
+
+  let [quantity, setQuantity] = useState(initialQuantity);
 
   function decrement(event) {
     setQuantity((prevQ) => {
