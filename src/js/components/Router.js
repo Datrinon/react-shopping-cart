@@ -15,6 +15,7 @@ import Cart from "./Cart";
 import NotFound from "./NotFound";
 
 export const CartDispatch = React.createContext(null);
+export const CartContext = React.createContext(null);
 
 /**
  * This reducer function handles the state of cart. It is used in the product 
@@ -24,6 +25,7 @@ export const CartDispatch = React.createContext(null);
  * @param {*} action 
  */
 function cartReducer(state, action) {
+  console.trace();
   switch (action.type) {
     case 'additem':
       const newCart = {...state};
@@ -48,18 +50,22 @@ function Router() {
   return (
     <>
       <BrowserRouter>
-        <CartDispatch.Provider value={dispatch}>
-          <NavHeader cart={cart} />
-          <main className="App content">
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path="/products/:categoryId" component={Category} />
-              <Route exact path="/products" component={ProductCategoryList} />
-              <Route exact path="/cart" component={Cart} />
-              <Route component={NotFound} />
-            </Switch>
-          </main>
-        </CartDispatch.Provider>
+        <CartContext.Provider value={cart}>
+          <CartDispatch.Provider value={dispatch}>
+          <NavHeader />
+          <React.StrictMode>
+            <main className="App content">
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route path="/products/:categoryId" component={Category} />
+                <Route exact path="/products" component={ProductCategoryList} />
+                <Route exact path="/cart" component={Cart} />
+                <Route component={NotFound} />
+              </Switch>
+            </main>
+            </React.StrictMode>
+          </CartDispatch.Provider>
+        </CartContext.Provider>
         <Footer />
       </BrowserRouter>
     </>

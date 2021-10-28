@@ -15,6 +15,7 @@ function ProductDetail(props) {
 
 
   function addToCart(ev) {
+    console.log("adding to cart...");
     ev.preventDefault();
 
     dispatch({

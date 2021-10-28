@@ -1,9 +1,12 @@
 import '../../css/NavHeader.css';
 import {NavLink} from 'react-router-dom';
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
+import { CartContext } from './Router';
 
-function NavHeader({cart}) {
+function NavHeader(props) {
   
+  const cart = useContext(CartContext);
+
   useEffect(() => {
     console.log(cart);
   }, [cart]);
