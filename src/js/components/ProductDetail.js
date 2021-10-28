@@ -1,14 +1,16 @@
 import "../../css/ProductDetail.css";
 import { useLocation } from 'react-router-dom';
 import { useContext, useState } from 'react';
-import { CartDispatch } from "./Router";
+import { CartContext, CartDispatch } from "./Router";
 
 import ImgCarousel from "./ImgCarousel";
 import ItemQuantity from "./ItemQuantity";
 
+import { MAX_ITEMS } from "./Router";
 
 function ProductDetail(props) {
   const dispatch = useContext(CartDispatch);
+  const cart = useContext(CartContext);
 
   let details = useLocation()["state"]["details"];
   let images = useLocation()["state"]["images"];
@@ -17,6 +19,13 @@ function ProductDetail(props) {
   function addToCart(ev) {
     console.log("adding to cart...");
     ev.preventDefault();
+
+    if (details.imgdir in cart && cart[details.imgdir]["quantity"] >= MAX_ITEMS) {
+      alert(`Error: Item limit of ${MAX_ITEMS} reached for this product.`);
+      //!
+      // TODO
+      // This is where you put a modal showing that the max number of items was reached.
+    }
 
     dispatch({
       type: "additem",
