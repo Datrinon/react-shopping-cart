@@ -1,11 +1,86 @@
 .header {
   border: 1px solid black;
+  display: grid;
+  grid-template-areas:
+  "logo empty cart-menu"
+  "menu menu menu";
 }
 
 .logo-wrapper {
-  width: 72px;
+  width: 100px;
+  grid-area: logo;
+  border: 1px solid yellow;
 }
 
 .logo {
   width: 100%;
+}
+
+.cart-and-menu {
+  grid-area: cart-menu;
+  justify-self: right;
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.cart {
+  position: relative;
+  top: 50%;
+  align-self: center;
+  transform: scale(125%);
+  padding-right: 15px;
+}
+
+.cart-quantity {
+  position: absolute;
+  font-size: 65%;
+  background-color: rgba(255,0,0,80%);
+  color: white;
+  padding: 1px 3px;
+  border-radius: 50%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  top: 4px;
+  right: 10px;
+}
+
+.menu {
+  text-align: center;
+}
+
+.menu-button {
+  border: none;
+  background-color: white;
+}
+
+.menu-button > svg {
+  min-width: 24px;
+}
+
+.menu-icon {
+  border: 1px solid red;
+  justify-self: end;
+}
+
+.website-links {
+  grid-area: menu;
+  border: 1px solid black;
+  max-height: 100px;
+  transition: max-height 0.45s ease-out;
+}
+
+.closed {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s ease-out;
+}
+
+.website-links .link {
+  height: 35%;
+  padding: 5px;
+  font-size: 125%;
+}
+
+.website-links .link:nth-child(odd) {
+  border-bottom: 1px solid black;
 }

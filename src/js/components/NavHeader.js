@@ -1,12 +1,17 @@
 import '../../css/NavHeader.css';
-import {Link, NavLink} from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useContext, useEffect } from 'react';
 import { CartContext } from './Router';
 
-import Logo from "../../images/logo.jpg";
+import MenuButton from './MenuButton';
+
+import Logo from "../../images/logo.png";
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 function NavHeader(props) {
-  
+
   const cart = useContext(CartContext);
 
   useEffect(() => {
@@ -22,29 +27,42 @@ function NavHeader(props) {
     return numItems;
   }
 
+  function toggleMenu() {
+    document.querySelector(".website-links").classList.toggle("closed");
+  }
+
   return (
     <header className="header">
-      Some header here.
-      <nav>
+      <div className="logo-wrapper">
+        <Link to="/">
+          <img src={Logo} alt="The logo of Mako Bikes." className="logo" />
+        </Link>
+      </div>
+      <nav className="website-links closed">
         <ul>
-          <li>
-            <div className="logo-wrapper">
-              <Link to="/">
-                <img src={Logo} alt="The logo of Mako Bikes." className="logo"/>
-              </Link>
-            </div>
-          </li>
-          <li>
+          <li className="link">
             <NavLink to="/products/ebikes" activeClassName="active">E-Bikes</NavLink>
           </li>
-          <li>
+          <li className="link">
             <NavLink to="/products/accessories" activeClassName="active">Accessories</NavLink>
           </li>
         </ul>
-        <NavLink to="/cart">
-        My Cart 🛒 {computeCartQuantity()}
-        </NavLink>
       </nav>
+      <div className="cart-and-menu">
+        <div className="cart">
+          <NavLink to="/cart">
+            <FontAwesomeIcon icon={faShoppingCart}/>
+            <span className="cart-quantity">
+              {computeCartQuantity()}
+            </span>
+          </NavLink>
+        </div>
+        <div className="menu mobile-only">
+          <MenuButton 
+            toggleMenu={toggleMenu}
+          />
+        </div>
+      </div>
     </header>
   )
 }
