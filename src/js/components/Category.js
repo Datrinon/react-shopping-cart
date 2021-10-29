@@ -2,12 +2,15 @@ import '../../css/Category.css';
 import { Route, Switch, useParams, useRouteMatch } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-import Banner from './Banner';
+import CategoryBanner from './CategoryBanner';
 import ProductCard from "./ProductCard";
 import ProductDetail from "./ProductDetail";
 
 import ebikes from "../../data/ebikes.json";
 import accessories from "../../data/accessories.json";
+import ebikesBanner from "../../images/ebikes-banner.jpg";
+import accessoriesBanner from "../../images/accessories-banner.jpg";
+
 
 function Category() {
   let match = useRouteMatch();
@@ -74,7 +77,7 @@ function Category() {
       case "ebikes":
         section = (
           <>
-            <Banner text="E-Bikes" />
+            <CategoryBanner text="E-Bikes" img={ebikesBanner} />
             <p>Our E-Bikes.</p>
             {convertToProductCards(data)}
           </>
@@ -83,7 +86,7 @@ function Category() {
       case "accessories":
         section = (
           <>
-            <Banner text="Accessories" />
+            <CategoryBanner text="Accessories" img={accessoriesBanner} />
             <p>The finest accessories to accommodate your e-bike.</p>
             {convertToProductCards(data)}
           </>
