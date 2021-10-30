@@ -4,10 +4,51 @@
   grid-template-areas:
   "logo empty cart-menu"
   "menu menu menu";
-  position: fixed;
-  z-index: 10;
+  position: sticky;
   width: 100vw;
   background-color: white;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 10;
+}
+
+@media (min-width: 1024px) {
+  #root .header > * {
+    grid-area: unset;
+  }
+
+  #root .menu-button {
+    display: none;
+  }
+
+  .header {
+    display: flex;
+  }
+
+  #root .website-links {
+    max-height: initial;
+    overflow: initial;
+  }
+
+  .website-links > ul {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    align-items: center;
+  }
+
+  #root .website-links .link {
+    border: initial;
+    height: initial;
+    padding: 0;
+    margin: 0 15px;
+  }
+
+  .cart-and-menu {
+    position: absolute;
+    right: 5%;
+  }
 }
 
 .logo-wrapper {
@@ -82,11 +123,11 @@
 
 .website-links .link {
   height: 35%;
-  padding: 5px;
-  font-size: 125%;
+  padding: 10px;
+  font-size: 150%;
 }
 
 .website-links .link:nth-child(odd) {
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  border-top: 1px solid rgb(86, 86, 86);
+  border-bottom: 1px solid rgb(86, 86, 86);
 }

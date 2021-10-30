@@ -10,6 +10,7 @@
   object-fit: cover;
   z-index: 1;
   position: absolute;
+  object-position: bottom;
 }
 
 .landing-splash .slogan {
@@ -26,15 +27,18 @@
 .landing-splash .shop-now {
   z-index: 2;
   position: absolute;
-  bottom: 10%;
+  bottom: 25%;
   left: 25%;
   right: 25%;
   border: none;
   background-color: rgb(204, 26, 26);
   box-shadow: 0px 3px 7px 0px #000000;
   border-radius: 5px;
-  padding: 10px;
+  padding: 9px;
   text-align: center;
+  display: block;
+  width: 192px;
+  margin: 0 auto;
 }
 
 .shop-now a {
