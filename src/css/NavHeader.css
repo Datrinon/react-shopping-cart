@@ -4,12 +4,15 @@
   grid-template-areas:
   "logo empty cart-menu"
   "menu menu menu";
+  position: fixed;
+  z-index: 10;
+  width: 100vw;
+  background-color: white;
 }
 
 .logo-wrapper {
   width: 100px;
   grid-area: logo;
-  border: 1px solid yellow;
 }
 
 .logo {
@@ -49,8 +52,10 @@
 }
 
 .menu-button {
+  all: unset;
   border: none;
   background-color: white;
+  margin-right: 15px;
 }
 
 .menu-button > svg {
@@ -64,9 +69,9 @@
 
 .website-links {
   grid-area: menu;
-  border: 1px solid black;
   max-height: 100px;
   transition: max-height 0.45s ease-out;
+  overflow: hidden;
 }
 
 .closed {
@@ -82,5 +87,6 @@
 }
 
 .website-links .link:nth-child(odd) {
+  border-top: 1px solid black;
   border-bottom: 1px solid black;
 }
