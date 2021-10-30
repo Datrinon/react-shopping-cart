@@ -1,0 +1,130 @@
+.landing-splash {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.landing-splash .banner {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  position: absolute;
+}
+
+.landing-splash .slogan {
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  text-align: center;
+  width: 100vw;
+  color: rgb(255, 255, 255);
+  font-size: 150%;
+  font-weight: 400;
+}
+
+.landing-splash .shop-now {
+  z-index: 2;
+  position: absolute;
+  bottom: 10%;
+  left: 25%;
+  right: 25%;
+  border: none;
+  background-color: rgb(204, 26, 26);
+  box-shadow: 0px 3px 7px 0px #000000;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+}
+
+.shop-now a {
+  color: white;
+  letter-spacing: 1px;
+  font-weight: 400;
+}
+
+.our-mission {
+  position: relative;
+  height: 85vh;
+}
+
+.our-mission .gradient {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(0deg, rgb(255 255 255) 0%, rgb(43 43 43 / 58%) 45%);  
+  z-index: 2;
+}
+
+.our-mission .image {
+  position: relative;
+  z-index: 1;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 99%;
+  filter: blur(1px) sepia(0.3);
+}
+
+.our-mission .text {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  padding: 15px;
+  width: 80vw;
+  max-width: 800px;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, 15%);
+}
+
+.mission-header, .mission-text {
+  color: white;
+}
+
+.mission-header {
+  text-align: center;
+  font-size: 300%;
+  font-variant-caps: all-petite-caps;
+  letter-spacing: 1px;
+  text-shadow: 1px 2px 10px black;
+}
+
+.mission-text {
+  text-shadow: 1px 2px 3px black;
+  padding-bottom: 25px;
+  line-height: 125%;
+  text-align: center;
+  font-size: 125%;
+}
+
+.mailing-list {
+  margin: 25px 0;
+  margin-bottom: 150px;
+  text-align: center;
+  padding: 5%;
+}
+
+.mailing-list .mailing-list-prompt {
+  font-size: 200%;
+}
+
+.mailing-list-prompt {
+  margin-bottom: 10px;
+}
+
+.email-signup, .signup {
+  display: block;
+  margin: 0 auto;
+}
+
+.email-signup {
+  all: unset;
+  border-bottom: 1px solid darkgrey;
+}
+
+.signup {
+  margin: 15px auto;
+}

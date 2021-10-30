@@ -1,12 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
 
 
 body {
   margin: 0;
-  font-family: "Zen Kaku Gothic Antique", sans-serif;
+  font-family: "Abel", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-weight: 600;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: "Urbanist";
+}
+
+button {
+  all: unset;
+  border: none;
+  background-color: rgb(204, 26, 26);
+  box-shadow: 0px 3px 7px 0px #000000;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  color: white;
 }
 
 a {
