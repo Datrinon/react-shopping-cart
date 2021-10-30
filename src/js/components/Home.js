@@ -16,8 +16,15 @@ function Home() {
         >
           Time for an electrifying ride.
         </h1>
+        <img
           className="banner"
           src={banner}
+          alt="A bike alongside a mountain vista." />
+        <div className="shop-now">
+          <Link to="/products">
+            Shop Now
+          </Link>
+        </div>
       </section>
       <section className="our-mission">
         <div className="gradient"></div>
