@@ -45,6 +45,12 @@ function Home() {
           </div>
         </div>
       </section>
+      <section className="mailing-list">
+        <h1 className="mailing-list-prompt">Join the Mako Club.</h1>
+        <p className="mailing-list-dialog">As a part of our club's mailing list, you'll receive exclusive news and offers.</p>
+        <input className="email-signup" type="email" placeholder="john.doe@gmail.com"></input>
+        <button className="signup">Sign Up</button>
+      </section>
     </div>
   );
 }
