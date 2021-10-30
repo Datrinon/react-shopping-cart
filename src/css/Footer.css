@@ -1,0 +1,54 @@
+.footer {
+  border: 1px solid cyan;
+  background-color: rgb(25, 25, 25);
+  color: white;
+}
+
+.footer a {
+  color: rgb(179, 179, 179);
+  display: block;
+}
+
+.social-media-icons {
+  display: flex;
+  justify-content: center;
+  color: grey;
+  margin: 15px 0;
+}
+
+.social-media-icons > svg {
+  margin: 0 5px;
+}
+
+.subdirectory-header {
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+
+.directories {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+@media (min-width: 645px) {
+  .directories {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .directory {
+    margin: 15px;
+    min-width: 100px;
+  }
+
+}
+
+.directory {
+  margin: 15px 0;
+}
+
+.footer-link {
+  padding: 5px;
+}
