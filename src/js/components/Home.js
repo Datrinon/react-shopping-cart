@@ -1,8 +1,11 @@
 import '../../css/Home.css';
 
-import banner from "../../images/splash-banner.jpg"
+import banner from "../../images/splash-banner-2.jpg"
+import aboutUs from "../../images/about-us.jpg"
 
-import {intro} from "../../data/schpiel.js";
+import { Link } from "react-router-dom";
+
+import { intro } from "../../data/schpiel.js";
 
 function Home() {
   return (
@@ -13,21 +16,26 @@ function Home() {
         >
           Time for an electrifying ride.
         </h1>
-        <img 
           className="banner"
           src={banner}
-          alt="A bike alongside a mountain vista."/>
       </section>
       <section className="our-mission">
-        <h1 className="mission-header">Our Mission</h1>
-        <div>
-        {intro.split("\n").map(segment => {
-          return (
-            <p className="mission-text">
-              {segment}
-            </p>
-          )
-        })}
+        <div className="gradient"></div>
+        <img className="image" src={aboutUs} alt="The old Mako garages."></img>
+        <div className="text">
+          <h1 className="mission-header">Our Mission</h1>
+          <div>
+            {intro.split("\n").map(segment => {
+              if (segment.length === 0) {
+                return;
+              }
+              return (
+                <p className="mission-text">
+                  {segment}
+                </p>
+              )
+            })}
+          </div>
         </div>
       </section>
     </div>
