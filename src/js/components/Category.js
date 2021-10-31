@@ -82,7 +82,7 @@ function Category() {
         section = (
           <>
             <CategoryBanner text="E-Bikes" img={ebikesBanner} />
-            <p className="category-caption">Current line-up</p>
+            <p className="category-caption">Current Line Up</p>
             {convertToProductCards(data)}
           </>
         );
@@ -91,7 +91,7 @@ function Category() {
         section = (
           <>
             <CategoryBanner text="Accessories" img={accessoriesBanner} />
-            <p className="category-caption">Available Accessories</p>
+            <p className="category-caption">Available Products</p>
             {convertToProductCards(data)}
           </>
         );
