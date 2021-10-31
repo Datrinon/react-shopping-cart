@@ -37,7 +37,7 @@
   padding: 9px;
   text-align: center;
   display: block;
-  width: 192px;
+  width: 150px;
   margin: 0 auto;
 }
 
@@ -49,7 +49,9 @@
 
 .our-mission {
   position: relative;
+  min-height: 700px;
   height: 85vh;
+  max-height: 900px;
 }
 
 .our-mission .gradient {
@@ -99,9 +101,9 @@
 .mission-text {
   text-shadow: 1px 2px 3px black;
   padding-bottom: 25px;
-  line-height: 125%;
+  line-height: 145%;
   text-align: center;
-  font-size: 125%;
+  font-size: 100%;
 }
 
 .mailing-list {

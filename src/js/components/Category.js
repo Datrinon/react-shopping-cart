@@ -8,7 +8,7 @@ import ProductDetail from "./ProductDetail";
 
 import ebikes from "../../data/ebikes.json";
 import accessories from "../../data/accessories.json";
-import ebikesBanner from "../../images/ebikes-banner.jpg";
+import ebikesBanner from "../../images/ebikes-banner-2.jpg";
 import accessoriesBanner from "../../images/accessories-banner.jpg";
 
 
@@ -67,7 +67,11 @@ function Category() {
       )
     });
 
-    return productCards;
+    return (
+      <div className="products">
+      {productCards}
+      </div>
+      );
   }
 
   function renderProductList() {
@@ -78,7 +82,7 @@ function Category() {
         section = (
           <>
             <CategoryBanner text="E-Bikes" img={ebikesBanner} />
-            <p>Our E-Bikes.</p>
+            <p className="category-caption">Current line-up</p>
             {convertToProductCards(data)}
           </>
         );
@@ -87,7 +91,7 @@ function Category() {
         section = (
           <>
             <CategoryBanner text="Accessories" img={accessoriesBanner} />
-            <p>The finest accessories to accommodate your e-bike.</p>
+            <p className="category-caption">Available Accessories</p>
             {convertToProductCards(data)}
           </>
         );
@@ -107,8 +111,7 @@ function Category() {
         <ProductDetail />
       </Route>
       <Route path={match.path}>
-        <section className="Category">
-          Category Page.
+        <section className="category">
           {renderProductList()}
         </section>
       </Route>

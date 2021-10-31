@@ -1,3 +1,73 @@
-.banner {
-  border: 1px solid black;
+.category .banner {
+  height: 256px;
+  object-position: center;
+  background-size: cover;
+  background-position-y: 50%;
+  box-shadow: inset 1px 2px 20px 11px #0000007d;
+}
+
+.category .banner-text {
+  position: relative;
+  top: 50%;
+  left: 5%;
+  color: white;
+  font-size: 200%;
+  font-style: italic;
+  text-shadow: 2px 4px 6px black;
+}
+
+.category-caption {
+  font-family: "Urbanist";
+  width: fit-content;
+  width: -moz-fit-content;
+  margin: 0 auto;
+  font-size: 200%;
+  font-variant-caps: all-small-caps;
+  border-bottom: 1px solid black;
+}
+
+.products {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 90vw;
+  max-width: 850px;
+  margin: 0 auto;
+  flex-flow: row wrap;
+}
+
+.product-card {
+  width: 256px;
+  height: 256px;
+  margin: 10px;
+  background-color: white;
+  box-shadow: 0px 2px 5px 1px #0000004a;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.product-info {
+  display: grid;
+  grid-template-rows: 70% 15% 15%;
+  height: 100%;
+}
+
+
+.product-card .product-img {
+  width: 180px;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.product-name {
+  text-align: center;
+  font-size: 125%;
+  font-weight: 600;
+}
+
+.product-price {
+  text-align: center;
+  font-size: 125%;
 }

@@ -12,8 +12,8 @@ function ProductCard(props) {
             images : props.images
            }
       }}>
-        <div>
-          <img src={props.coverImage} style={{width: "128px"}} alt="product-card"/>
+        <div className="product-info">
+          <img className="product-img" src={props.coverImage} alt="product-card"/>
           <h2 className="product-name">{props.title}</h2>
           <p className="product-price">${props.price}</p>
         </div>

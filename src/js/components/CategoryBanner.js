@@ -7,8 +7,10 @@ import "../../css/CategoryBanner.css";
  */
 function CategoryBanner(props) {
   return (
-    <div className="banner">
-      <img className="banner-image" src={props.img ?? ""} alt={`banner for ${props.text}`}/>
+    <div className="banner"
+      style={{
+        backgroundImage: `url(${props.img})`
+      }}>
       <h1 className="banner-text">{props.text}</h1>
     </div>
   );
