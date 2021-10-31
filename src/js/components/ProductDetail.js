@@ -41,12 +41,12 @@ function ProductDetail(props) {
   }
 
   return(
-    <section>
+    <section className="product-details">
       <h1 className="product-title">{details.brand} {details.name}</h1>
       <ImgCarousel images={images} />
       <div className="product-price-desc">
         <p className="price">${details.price}</p>
-        <form>
+        <form className="cart-form">
           <ItemQuantity initialQuantity={1} />
           <button className="add-to-cart" type="submit" onClick={addToCart}>Add to Cart</button> 
           {/*!!! Input number cannot be edited. Good. */}

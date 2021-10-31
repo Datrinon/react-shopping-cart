@@ -28,3 +28,31 @@
 .summary .description {
   line-height: 150%;
 }
+
+
+@media (min-width: 700px) {
+  .product-details {
+    display: grid;
+    grid-template-areas: 
+    "title title"
+    "carousel desc"
+    "carousel desc";
+    grid-template-columns: 3fr 2fr;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .product-title {
+    grid-area: title;
+  }
+
+  .picture-carousel {
+    width: 100%;
+    grid-area: carousel;
+  }
+
+  .product-price-desc {
+    grid-area: desc;
+  }
+
+}
