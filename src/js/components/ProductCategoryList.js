@@ -6,12 +6,17 @@ import ebikesSquare from "../../images/ebikes-square.jpg"
 
 function ClickBox(props) {
   return (
-    <div className="click-box">
-      <Link to={props.link}>
-        <img src={props.img}/>
-        <h1>{props.title}</h1>
-      </Link>
+    <Link to={props.link}>
+    <div
+      className="click-box"
+      style={{
+        backgroundImage: `url(${props.img})`
+      }}
+      >
+
+        <h1 className="category-title">{props.title}</h1>
     </div>
+    </Link>
   )
 }
 
@@ -19,7 +24,7 @@ function ProductCategoryList() {
   let match = useRouteMatch();
   
   return (
-    <div className="ProductCategoryList">
+    <div className="product-category-list">
       <ul>
         <li>
           <ClickBox 
