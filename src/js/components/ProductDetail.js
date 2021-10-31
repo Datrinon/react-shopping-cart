@@ -1,4 +1,5 @@
 import "../../css/ProductDetail.css";
+import "../../css/ItemQuantity.css";
 import { useLocation } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { CartContext, CartDispatch } from "./Router";
@@ -43,19 +44,21 @@ function ProductDetail(props) {
     <section>
       <h1 className="product-title">{details.brand} {details.name}</h1>
       <ImgCarousel images={images} />
-      <p className="price">${details.price}</p>
-      <form>
-        <ItemQuantity initialQuantity={1} />
-        <button type="submit" onClick={addToCart}>Add to Cart</button> 
-        {/*!!! Input number cannot be edited. Good. */}
-        {/*!!! After adding to cart, delay with a timeout for 3 seconds this timer. */}
-        {/*Then, replace this with Go to Cart with a Link.... */}
-      </form>
-      <div>
-        <h2>Description</h2>
-        <p className="description">
-          {details.summary}
-        </p>
+      <div className="product-price-desc">
+        <p className="price">${details.price}</p>
+        <form>
+          <ItemQuantity initialQuantity={1} />
+          <button className="add-to-cart" type="submit" onClick={addToCart}>Add to Cart</button> 
+          {/*!!! Input number cannot be edited. Good. */}
+          {/*!!! After adding to cart, delay with a timeout for 3 seconds this timer. */}
+          {/*Then, replace this with Go to Cart with a Link.... */}
+        </form>
+        <div className="summary">
+          <h2 className="title">About the {details.name}</h2>
+          <p className="description">
+            {details.summary}
+          </p>
+        </div>
       </div>
     </section>
   )

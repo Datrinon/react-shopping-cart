@@ -1,0 +1,30 @@
+.product-title {
+  font-size: 200%;
+  text-align: center;
+  margin: 15px 0;
+}
+
+.product-price-desc {
+  margin: 15px;
+}
+
+.price {
+  font-size: 150%;
+  font-weight: bold;
+}
+
+.add-to-cart {
+  margin: 15px 0;
+  padding: 10px 25px;
+  box-shadow: none;
+}
+
+.summary .title {
+  text-align: center;
+  font-size: 125%;
+  margin: 5px 0;
+}
+
+.summary .description {
+  line-height: 150%;
+}
