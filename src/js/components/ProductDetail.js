@@ -1,11 +1,15 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
+
 import "../../css/ProductDetail.css";
 import "../../css/ItemQuantity.css";
 import { useLocation } from 'react-router-dom';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { CartContext, CartDispatch } from "./Router";
 
 import ImgCarousel from "./ImgCarousel";
 import ItemQuantity from "./ItemQuantity";
+import Utility from "../util/utility";
 
 import { MAX_ITEMS } from "./Router";
 
@@ -15,6 +19,8 @@ function ProductDetail(props) {
 
   let details = useLocation()["state"]["details"];
   let images = useLocation()["state"]["images"];
+  
+  const [itemLimitReached, setItemLimitReached] = useState(false);
 
 
   function addToCart(ev) {
@@ -22,10 +28,9 @@ function ProductDetail(props) {
     ev.preventDefault();
 
     if (details.imgdir in cart && cart[details.imgdir]["quantity"] >= MAX_ITEMS) {
-      alert(`Error: Item limit of ${MAX_ITEMS} reached for this product.`);
-      //!
-      // TODO
-      // This is where you put a modal showing that the max number of items was reached.
+      Utility.triggerAnimation(document.querySelector(".add-to-cart"),
+      "tremble");
+      setItemLimitReached(true);
     }
 
     dispatch({
@@ -40,6 +45,7 @@ function ProductDetail(props) {
     });
   }
 
+
   return(
     <section className="product-details">
       <h1 className="product-title">{details.brand} {details.name}</h1>
@@ -49,9 +55,16 @@ function ProductDetail(props) {
         <form className="cart-form">
           <ItemQuantity initialQuantity={1} />
           <button className="add-to-cart" type="submit" onClick={addToCart}>Add to Cart</button> 
-          {/*!!! Input number cannot be edited. Good. */}
-          {/*!!! After adding to cart, delay with a timeout for 3 seconds this timer. */}
-          {/*Then, replace this with Go to Cart with a Link.... */}
+          {itemLimitReached && (
+            <div className="error-message">
+              <div className="error-title">
+                <h1><FontAwesomeIcon icon={faExclamationCircle}/> Error: Item Limit Reached!</h1>
+              </div>
+              <p className="error-desc">
+                You may only have a maximum of {MAX_ITEMS} of any item in a cart.
+              </p>
+            </div>
+          )}
         </form>
         <div className="summary">
           <h2 className="title">About the {details.name}</h2>

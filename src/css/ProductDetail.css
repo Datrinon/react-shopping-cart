@@ -56,3 +56,45 @@
   }
 
 }
+
+.error-message {
+  border: 1px solid maroon;
+  border-radius: 3px;
+  padding: 2px;
+  color: maroon;
+  animation: appear-from-top 0.6s;
+}
+
+
+@keyframes appear-from-top {
+  from {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  };
+}
+
+.tremble {
+  animation: tremble 0.6s;
+}
+
+@keyframes tremble {
+  0% {
+    transform: translateX(5px);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100%{
+    transform: translateX(0px);
+  }
+}
