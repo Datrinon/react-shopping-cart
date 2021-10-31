@@ -46,6 +46,12 @@ function Cart() {
   }
 
   function enumerateCartItems() {
+    if (Object.keys(cart).length === 0) {
+      return (
+        <p className="empty-cart">Cart is currently empty.</p>
+      )
+    }
+
     return Object.keys(cart).map(sku => {
       const item = cart[sku];
 
@@ -58,20 +64,18 @@ function Cart() {
             src={item.thumbnail}
             alt={`Side view of the ${item.name}`}
           />
-          <div>
-            <h2 className="product-name">{item.name}</h2>
-            <p className="product-price">${item.price}</p>
-            <form onSubmit={removeCartItem} data-sku={item.productCode}>
-              <ItemQuantity
-                initialQuantity={item.quantity}
-                callbackOnChange={onQuantityChange}
-                identifier={item.productCode}
-                />
-              <button>
-                Remove
-              </button>
-            </form>
-          </div>
+          <h2 className="product-name">{item.name}</h2>
+          <p className="product-price">${item.price}</p>
+          <form onSubmit={removeCartItem} data-sku={item.productCode} className="modify-item-controls">
+            <ItemQuantity
+              initialQuantity={item.quantity}
+              callbackOnChange={onQuantityChange}
+              identifier={item.productCode}
+              />
+            <button className="remove-from-cart">
+              Remove
+            </button>
+          </form>
         </div>
       );
     });
@@ -79,15 +83,18 @@ function Cart() {
   }
 
   return (
-    <div className="Cart">
-      <h1>Your Cart</h1>
+    <div className="shopping-cart-page">
+      <h1 className="heading">Cart</h1>
       <div className="items">
         {enumerateCartItems()}
       </div>
-      <div>
-        <p>Total: {getCartTotal()}</p>
-        <button disabled>Go to Checkout</button>
+      <div className="total">
+        <div className="total-amt">
+          <p className="total-label">Total</p>
+           <p classname="total-sum">${getCartTotal()}</p>
+           </div>
       </div>
+      <button disabled className="checkout">Go to Checkout</button>
     </div>
   );
 }
