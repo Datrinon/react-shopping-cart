@@ -1,5 +1,8 @@
 import "../../css/carousel.css";
 import React, { useRef, useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+
 
 function ImgCarousel(props) {
 
@@ -14,7 +17,7 @@ function ImgCarousel(props) {
   let thumbnails = useRef(images.map((thumbnail, index) => {
     return React.cloneElement(
       thumbnail,
-      { onClick : setCurrentIndex.bind(null, index)}
+      { onClick: setCurrentIndex.bind(null, index) }
     );
   }));
 
@@ -39,21 +42,28 @@ function ImgCarousel(props) {
   }
 
   let controls = (
-    <div className="carousel-controls">
-    <button onClick={prevPic}>Previous</button>
-    <button onClick={nextPic}>Next</button>
-    <div className="carousel-thumbnails">
-      {[...thumbnails.current]}
-    </div>
-  </div>
+    <>
+      <div className="carousel-controls">
+        <button onClick={prevPic}>
+          <FontAwesomeIcon icon={faChevronLeft} size="2x"/>
+        </button>
+        <button onClick={nextPic}>
+          <FontAwesomeIcon icon={faChevronRight} size="2x"/>
+        </button>
+      </div>
+
+      <div className="carousel-thumbnails">
+        {[...thumbnails.current]}
+      </div>
+    </>
   );
 
   return (
     <div className="picture-carousel">
-      {images.length > 1 && controls}
       <div>
-        <img alt="" src={props.images[currentIndex]} className="current-image"/>
+        <img alt="" src={props.images[currentIndex]} className="current-image" />
       </div>
+      {images.length > 1 && controls}
     </div>
   )
 }

@@ -1,7 +1,35 @@
+.picture-carousel {
+  position: relative;
+}
+
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.carousel-controls button {
+  background-color: initial;
+  box-shadow: none;
+  color: rgb(219, 22, 22);
+}
+
+.carousel-controls button:hover {
+  transform: scale(1.1);
+}
+
+.carousel-thumbnails {
+  margin: 0 auto;
+  width: fit-content;
+}
+
 .carousel-thumbnails .carousel-img {
   width: 55px;
   height: 55px;
   border: 1px solid black;
+  margin: 0 1px;
 }
 
 .carousel-thumbnails .carousel-img:hover {
@@ -9,5 +37,5 @@
 }
 
 .current-image {
-  width: 50%;
+  width: 100vw;
 }
