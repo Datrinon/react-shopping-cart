@@ -98,3 +98,42 @@
     transform: translateX(0px);
   }
 }
+
+.successful-message {
+  opacity: 0;
+}
+
+.successful-flash {
+  color: lime;
+  animation: flash-temporarily 3s;
+  position: relative;
+  left: 5px;
+}
+
+@keyframes flash-temporarily {
+  0% {
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  25% {
+    color: rgb(73, 255, 73);
+  }
+  35% {
+    color: lime;
+  }
+  45% {
+    color: rgb(73, 255, 73);
+  }
+  55% {
+    color: lime;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+
+}

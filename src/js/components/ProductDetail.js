@@ -31,7 +31,15 @@ function ProductDetail(props) {
       Utility.triggerAnimation(document.querySelector(".add-to-cart"),
       "tremble");
       setItemLimitReached(true);
+      
+      return;
     }
+
+    Utility.triggerAnimation(
+      document.querySelector(".successful-message"),
+      "successful-flash"
+    );
+
 
     dispatch({
       type: "additem",
@@ -54,7 +62,10 @@ function ProductDetail(props) {
         <p className="price">${details.price}</p>
         <form className="cart-form">
           <ItemQuantity initialQuantity={1} />
-          <button className="add-to-cart" type="submit" onClick={addToCart}>Add to Cart</button> 
+          <div>
+            <button className="add-to-cart" type="submit" onClick={addToCart}>Add to Cart</button>
+            <span className="successful-message">Added! ✔</span>
+          </div>
           {itemLimitReached && (
             <div className="error-message">
               <div className="error-title">
