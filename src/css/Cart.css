@@ -47,6 +47,11 @@
   color: rgb(61, 157, 253);
   font-weight: bold;
   padding: 5px;
+  cursor: pointer;
+}
+
+.cart-item .remove-from-cart:hover {
+  color: rgb(148, 202, 255);
 }
 
 .total {
