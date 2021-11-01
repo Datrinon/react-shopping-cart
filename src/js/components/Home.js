@@ -32,12 +32,12 @@ function Home() {
         <div className="text">
           <h1 className="mission-header">Our Mission</h1>
           <div>
-            {intro.split("\n").map(segment => {
+            {intro.split("\n").map((segment, index) => {
               if (segment.length === 0) {
                 return;
               }
               return (
-                <p className="mission-text">
+                <p className="mission-text" key={index}>
                   {segment}
                 </p>
               )
