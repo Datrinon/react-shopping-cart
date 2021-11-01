@@ -1,0 +1,27 @@
+.not-found {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.error-code {
+  font-size: 300%;
+}
+
+.error-dialog {
+  margin-top: 15px;
+  font-size: 125%;
+}
+
+.return-home-button {
+  background-color: rgb(44, 44, 44);
+  width:fit-content;
+  margin: 15px auto;
+  padding: 15px;
+  border-radius: 5px;
+  color: white;
+  transition: all 300ms;
+}
+
+.return-home-button:hover {
+  background-color: rgb(66,66,66);
+}
