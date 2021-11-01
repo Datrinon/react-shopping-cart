@@ -14,10 +14,6 @@ function NavHeader(props) {
 
   const cart = useContext(CartContext);
 
-  useEffect(() => {
-    console.log(cart);
-  }, [cart]);
-
   function computeCartQuantity() {
     let numItems = 0;
     Object.keys(cart).forEach(item => {

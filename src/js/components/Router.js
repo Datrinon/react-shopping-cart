@@ -18,6 +18,7 @@ import _, { cloneDeep } from 'lodash';
 
 
 export const MAX_ITEMS = 10;
+export const CART_KEY = "mako-bikes-cart";
 
 export const CartDispatch = React.createContext(null);
 export const CartContext = React.createContext(null);
@@ -30,9 +31,11 @@ export const CartContext = React.createContext(null);
  * @param {*} action 
  */
 function cartReducer(state, action) {
+  let newCart;
+  
   switch (action.type) {
     case 'additem': {
-      const newCart = _.cloneDeep(state);
+      newCart = _.cloneDeep(state);
 
       if (action.payload.productCode in newCart) {
         newCart[action.payload.productCode]["quantity"] += action.payload.quantity;
@@ -43,27 +46,31 @@ function cartReducer(state, action) {
         newCart[action.payload.productCode] = {...action.payload};
       }
 
-      console.log(newCart);
-      return newCart;
+      break;
     }
     case 'editItemQuantity':{
-      const newCart = _.cloneDeep(state);
+      newCart = _.cloneDeep(state);
       newCart[action.payload.productCode]["quantity"] = action.payload.quantity;
-      return newCart;
+
+      break;
     }
     case 'deleteItem': {
-      const newCart = _.cloneDeep(state);
+      newCart = _.cloneDeep(state);
       delete newCart[action.payload.productCode];
-      return newCart;
+
+      break;
     }
     default:
       return state;
   }
+
+  window.localStorage.setItem(CART_KEY, JSON.stringify(newCart));
+  return newCart;
 }
 
 function Router() {
 
-  const [cart, dispatch] = useReducer(cartReducer, {});
+  const [cart, dispatch] = useReducer(cartReducer, JSON.parse(window.localStorage.getItem(CART_KEY)) ?? {});
 
   return (
     <>
