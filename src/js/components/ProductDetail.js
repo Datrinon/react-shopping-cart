@@ -53,7 +53,7 @@ function ProductDetail(props) {
       })
 
     }
-  }, [category, productParam]);
+  }, []);
 
 
   /**
