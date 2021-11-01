@@ -8,7 +8,7 @@ import MenuButton from './MenuButton';
 import Logo from "../../images/logo.png";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 
 function NavHeader(props) {
 
@@ -41,6 +41,12 @@ function NavHeader(props) {
           </li>
           <li className="link">
             <NavLink to="/products/accessories" activeClassName="active">Accessories</NavLink>
+          </li>
+          <li className="link">
+            <a href="https://github.com/Datrinon/react-shopping-cart" target="_blank">
+              View Github
+              <FontAwesomeIcon icon={faExternalLinkAlt} className="ext-link-icon" size="xs"/>
+            </a>
           </li>
         </ul>
       </nav>

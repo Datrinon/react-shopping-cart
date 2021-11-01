@@ -71,7 +71,7 @@
 
 .website-links {
   grid-area: menu;
-  max-height: 100px;
+  max-height: 150px;
   transition: max-height 0.45s ease-out;
   overflow: hidden;
 }
@@ -102,7 +102,13 @@
 }
 
 .link:nth-child(odd) {
+  border-top: 1px solid rgb(181, 181, 181);
   border-bottom: 1px solid rgb(181, 181, 181);
+}
+
+.ext-link-icon {
+  padding-left: 5px;
+  color:rgb(88, 88, 88);
 }
 
 @media (min-width: 1024px) {
