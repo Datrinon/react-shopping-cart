@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import CategoryBanner from './CategoryBanner';
 import ProductCard from "./ProductCard";
 import ProductDetail from "./ProductDetail";
+import NotFound from './NotFound';
 
 import ebikes from "../../data/ebikes.json";
 import accessories from "../../data/accessories.json";
@@ -16,9 +17,10 @@ function Category() {
   let match = useRouteMatch();
   let { categoryId } = useParams();
   let [ data, setData ] = useState([]);
+  let [ validCategory, setValidCategory] = useState(true);
 
   useEffect(() => {
-    console.log("rerender");
+    setValidCategory(true);
     switch (categoryId) {
       case "ebikes":
         setData(ebikes);
@@ -27,9 +29,14 @@ function Category() {
         setData(accessories);
         break;
       default:
+        setValidCategory(false);
         break;
     }
   }, [categoryId]);
+
+  if (!validCategory) {
+    return (<NotFound />);
+  } 
 
   /**
    * To be used with getProductsFromCategory to transform data into Product
@@ -102,8 +109,6 @@ function Category() {
 
     return section;
   }
-
-  console.log(match.url);
 
   return (
     <Switch>
