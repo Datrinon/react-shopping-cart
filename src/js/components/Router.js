@@ -4,7 +4,7 @@ import "../../css/Router.css"
 // js
 // react-router-dom
 import React, { useReducer } from 'react';
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { HashRouter, Switch, Route } from "react-router-dom";
 // components
 import NavHeader from "./NavHeader";
 import Footer from "./Footer";
@@ -74,11 +74,10 @@ function Router() {
 
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <CartContext.Provider value={cart}>
           <CartDispatch.Provider value={dispatch}>
           <NavHeader />
-          <React.StrictMode>
             <main className="App content">
               <Switch>
                 <Route exact path="/" component={Home} />
@@ -88,11 +87,10 @@ function Router() {
                 <Route component={NotFound} />
               </Switch>
             </main>
-            </React.StrictMode>
           </CartDispatch.Provider>
         </CartContext.Provider>
         <Footer />
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }
