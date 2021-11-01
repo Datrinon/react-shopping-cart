@@ -68,7 +68,7 @@ function ProductDetail(props) {
     // preprocess url parameter
     productID = productID.toLowerCase();
 
-    // load correct db
+    // load correct db based on the parameter here.
     switch(category) {
       case "ebikes":
         db = await import("../../data/ebikes.json");
@@ -76,8 +76,9 @@ function ProductDetail(props) {
       case "accessories":
         db = await import("../../data/accessories.json");
         break;
-      default: 
-        break;
+      default:
+        // incorrect category given; return null (which will later trigger NOT_FOUND state.)
+        return null;
     }
 
     db = db.default;

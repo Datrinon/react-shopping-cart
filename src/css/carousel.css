@@ -30,6 +30,7 @@
   height: 55px;
   border: 1px solid black;
   margin: 0 1px;
+  object-fit: contain;
 }
 
 .carousel-thumbnails .carousel-img:hover {
